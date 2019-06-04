@@ -1,0 +1,17 @@
+version: '3'
+services:
+  phoenix:
+    build: .
+    ports:
+      - '4000:4000'
+    volumes:
+      - .:/app
+    depends_on:
+      - postgres
+  postgres:
+    image: 'postgres:10.8'
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - '5432:5432'
