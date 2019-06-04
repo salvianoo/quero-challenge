@@ -1,4 +1,4 @@
-defmodule BillinhoWeb.StudentController do
+defmodule BillinhoWeb.Api.V1.StudentController do
   use BillinhoWeb, :controller
 
   def index(conn, _params) do

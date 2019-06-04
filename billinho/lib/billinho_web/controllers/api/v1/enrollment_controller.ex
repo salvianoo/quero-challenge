@@ -1,4 +1,4 @@
-defmodule BillinhoWeb.InvoiceController do
+defmodule BillinhoWeb.Api.V1.EnrollmentController do
   use BillinhoWeb, :controller
 
   def index(conn, _params) do
