@@ -11,9 +11,10 @@ defmodule BillinhoWeb.Router do
     # get "/", PageController, :index
 
     scope "/v1", Api.V1, as: :v1 do
-      resources "/students", StudentController, only: [:index]
-      resources "/invoices", InvoiceController, only: [:index]
-      resources "/enrollments", EnrollmentController, only: [:index]
+      resources "/institutes", InstituteController, except: [:new, :edit]
+      resources "/students", StudentController, except: [:new, :edit]
+      resources "/enrollments", EnrollmentController, except: [:new, :edit]
+      resources "/invoices", InvoiceController, except: [:new, :edit]
     end
   end
 end

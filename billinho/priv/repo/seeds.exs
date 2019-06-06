@@ -9,3 +9,35 @@
 #
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
+
+alias Billinho.Students.Student
+alias Billinho.Institutes.Institute
+alias Billinho.Enrollments.Enrollment
+alias Billinho.Invoices.Invoice
+
+alias Billinho.Repo
+
+student = %Student{
+  birth_date: ~D[1988-03-11],
+  cpf: "02741316171",
+  gender: "M",
+  name: "Salviano Ludgerio",
+  payment_method: "Boleto",
+  telephone: 64999435794
+}
+|>
+Repo.insert!
+
+institute = %Institute{
+  name: "Universidade Federal de Uberlândia",
+  cnpj: "72.346.635/0001-56",
+  type: "Universidade"
+}
+|>
+Repo.insert!
+
+#%Enrollment{}
+
+# Como criar uma matricula?
+# Find student by id
+# Find institute by id
