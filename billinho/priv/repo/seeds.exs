@@ -10,31 +10,55 @@
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
 
-alias Billinho.Students.Student
-alias Billinho.Institutes.Institute
-alias Billinho.Enrollments.Enrollment
-alias Billinho.Invoices.Invoice
+# alias Billinho.Students.Student
+# alias Billinho.Institutes.Institute
+# alias Billinho.Enrollments.Enrollment
+# alias Billinho.Invoices.Invoice
 
-alias Billinho.Repo
+alias Billinho.Students
+alias Billinho.Institutes
+# alias Billinho.Enrollments
+# alias Billinho.Invoices
 
-student = %Student{
+# alias Billinho.Repo
+
+%{
   birth_date: ~D[1988-03-11],
-  cpf: "02741316171",
-  gender: "M",
-  name: "Salviano Ludgerio",
+  cpf: "17439498046",
+  gender: "F",
+  name: "Marta Rocha Felipe",
   payment_method: "Boleto",
   telephone: 64999435794
 }
 |>
-Repo.insert!
+Students.create_student
 
-institute = %Institute{
+%{
   name: "Universidade Federal de Uberlândia",
   cnpj: "72.346.635/0001-56",
   type: "Universidade"
 }
 |>
-Repo.insert!
+Institutes.create_institute
+
+# student = %Student{
+#   birth_date: ~D[1988-03-11],
+#   cpf: "02741316171",
+#   gender: "M",
+#   name: "Salviano Ludgerio",
+#   payment_method: "Boleto",
+#   telephone: 64999435794
+# }
+# |>
+# Repo.insert!
+
+# institute = %Institute{
+#   name: "Universidade Federal de Uberlândia",
+#   cnpj: "72.346.635/0001-56",
+#   type: "Universidade"
+# }
+# |>
+# Repo.insert!
 
 #%Enrollment{}
 
