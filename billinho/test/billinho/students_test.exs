@@ -6,8 +6,8 @@ defmodule Billinho.StudentsTest do
   describe "students" do
     alias Billinho.Students.Student
 
-    @valid_attrs %{birth_date: ~D[2010-04-17], cpf: "some cpf", gender: "some gender", name: "some name", payment_method: "some payment_method", telephone: "120.5"}
-    @update_attrs %{birth_date: ~D[2011-05-18], cpf: "some updated cpf", gender: "some updated gender", name: "some updated name", payment_method: "some updated payment_method", telephone: "456.7"}
+    @valid_attrs %{birth_date: ~D[2010-04-17], cpf: "32859656065", gender: "M", name: "Luke Skywalker", payment_method: "Boleto", telephone: 64999435794}
+    @update_attrs %{birth_date: ~D[2011-05-18], cpf: "88606688088", gender: "F", name: "Leia Organa", payment_method: "Cartão", telephone: 34999435794}
     @invalid_attrs %{birth_date: nil, cpf: nil, gender: nil, name: nil, payment_method: nil, telephone: nil}
 
     def student_fixture(attrs \\ %{}) do
@@ -32,11 +32,11 @@ defmodule Billinho.StudentsTest do
     test "create_student/1 with valid data creates a student" do
       assert {:ok, %Student{} = student} = Students.create_student(@valid_attrs)
       assert student.birth_date == ~D[2010-04-17]
-      assert student.cpf == "some cpf"
-      assert student.gender == "some gender"
-      assert student.name == "some name"
-      assert student.payment_method == "some payment_method"
-      assert student.telephone == Decimal.new("120.5")
+      assert student.cpf == "32859656065"
+      assert student.gender == "M"
+      assert student.name == "Luke Skywalker"
+      assert student.payment_method == "Boleto"
+      assert student.telephone == Decimal.new("64999435794")
     end
 
     test "create_student/1 with invalid data returns error changeset" do
@@ -47,11 +47,11 @@ defmodule Billinho.StudentsTest do
       student = student_fixture()
       assert {:ok, %Student{} = student} = Students.update_student(student, @update_attrs)
       assert student.birth_date == ~D[2011-05-18]
-      assert student.cpf == "some updated cpf"
-      assert student.gender == "some updated gender"
-      assert student.name == "some updated name"
-      assert student.payment_method == "some updated payment_method"
-      assert student.telephone == Decimal.new("456.7")
+      assert student.cpf == "88606688088"
+      assert student.gender == "F"
+      assert student.name == "Leia Organa"
+      assert student.payment_method == "Cartão"
+      assert student.telephone == Decimal.new("34999435794")
     end
 
     test "update_student/2 with invalid data returns error changeset" do

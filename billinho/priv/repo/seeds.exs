@@ -24,7 +24,7 @@ alias Billinho.Institutes
 
 %{
   birth_date: ~D[1988-03-11],
-  cpf: "17439498046",
+  cpf: "32859656065",
   gender: "F",
   name: "Marta Rocha Felipe",
   payment_method: "Boleto",

@@ -18,6 +18,7 @@ defmodule Billinho.Students.Student do
     student
     |> cast(attrs, [:birth_date, :cpf, :gender, :name, :payment_method, :telephone])
     |> validate_required([:birth_date, :cpf, :gender, :name, :payment_method, :telephone])
+    |> validate_format(:cpf, ~r/^[0-9]+$/)
     |> validate_inclusion(:gender, ~w(M F))
     |> validate_inclusion(:payment_method, ~w(Boleto Cartão))
     |> unique_constraint(:cpf)

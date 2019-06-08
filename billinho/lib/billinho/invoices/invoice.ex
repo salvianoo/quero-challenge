@@ -6,7 +6,8 @@ defmodule Billinho.Invoices.Invoice do
     field :due_date, :date
     field :price, :float
     field :status, :string
-    field :enrollment_id, :id
+    # field :enrollment_id, :id
+    belongs_to :enrollment, Billinho.Enrollments.Enrollment
 
     timestamps()
   end

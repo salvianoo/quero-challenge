@@ -15,6 +15,7 @@ defmodule Billinho.Institutes.Institute do
     institute
     |> cast(attrs, [:name, :cnpj, :type])
     |> validate_required([:name, :cnpj, :type])
+    |> validate_format(:cnpj, ~r/^[0-9]+$/)
     |> validate_inclusion(:type, ~w(Universidade Escola Creche))
     |> unique_constraint(:name)
     |> unique_constraint(:cnpj)

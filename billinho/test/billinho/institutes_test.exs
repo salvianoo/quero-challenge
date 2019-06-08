@@ -6,8 +6,8 @@ defmodule Billinho.InstitutesTest do
   describe "institutes" do
     alias Billinho.Institutes.Institute
 
-    @valid_attrs %{cnpj: "some cnpj", name: "some name", type: "some type"}
-    @update_attrs %{cnpj: "some updated cnpj", name: "some updated name", type: "some updated type"}
+    @valid_attrs %{cnpj: "94988448000109", name: "Universidade de Winterfell", type: "Universidade"}
+    @update_attrs %{cnpj: "90517134000177", name: "Escola de Idiomas Jedi", type: "Escola"}
     @invalid_attrs %{cnpj: nil, name: nil, type: nil}
 
     def institute_fixture(attrs \\ %{}) do
@@ -31,9 +31,9 @@ defmodule Billinho.InstitutesTest do
 
     test "create_institute/1 with valid data creates a institute" do
       assert {:ok, %Institute{} = institute} = Institutes.create_institute(@valid_attrs)
-      assert institute.cnpj == "some cnpj"
-      assert institute.name == "some name"
-      assert institute.type == "some type"
+      assert institute.cnpj == "94988448000109"
+      assert institute.name == "Universidade de Winterfell"
+      assert institute.type == "Universidade"
     end
 
     test "create_institute/1 with invalid data returns error changeset" do
@@ -43,9 +43,9 @@ defmodule Billinho.InstitutesTest do
     test "update_institute/2 with valid data updates the institute" do
       institute = institute_fixture()
       assert {:ok, %Institute{} = institute} = Institutes.update_institute(institute, @update_attrs)
-      assert institute.cnpj == "some updated cnpj"
-      assert institute.name == "some updated name"
-      assert institute.type == "some updated type"
+      assert institute.cnpj == "90517134000177"
+      assert institute.name == "Escola de Idiomas Jedi"
+      assert institute.type == "Escola"
     end
 
     test "update_institute/2 with invalid data returns error changeset" do
