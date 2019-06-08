@@ -71,6 +71,12 @@ defmodule Billinho.EnrollmentsTest do
       # assert enrollment.invoices === []
     end
 
+    test "check the total invoices created for the associated enrollment" do
+      enrollment = enrollment_fixture()
+
+      assert length(enrollment.invoices) == @valid_attrs.total_invoices
+    end
+
     # test "create_enrollment/3 with invalid data returns error changeset" do
     #   student = student_fixture()
     #   institute = institute_fixture()

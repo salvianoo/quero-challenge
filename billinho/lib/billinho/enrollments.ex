@@ -10,8 +10,9 @@ defmodule Billinho.Enrollments do
   alias Billinho.Students.Student
   alias Billinho.Institutes.Institute
   alias Billinho.Invoices.Invoice
-
   alias Billinho.Invoices
+
+  use Timex
 
   @doc """
   Returns the list of enrollments.
@@ -66,7 +67,7 @@ defmodule Billinho.Enrollments do
     |> Enrollment.changeset(attrs)
     |> put_student(student)
     |> put_institute(institute)
-    |> build_invoices(attrs.total_invoices)
+    |> build_invoices(attrs)
     |> Repo.insert()
   end
 
@@ -133,25 +134,36 @@ defmodule Billinho.Enrollments do
     Repo.preload(institute_or_institutes, :institute)
   end
 
-  defp build_invoices(changeset, total_invoices) do
+  defp build_invoices(changeset, enrollment_attrs) do
+    # d(%{total_price, total_invoices, due_date}) = enrollment_attrs
 
-    invoice_1 = %{price: 120.5, due_date: ~D[2019-06-21], status: "Aberta"}
-    invoice_2 = %{price: 120.5, due_date: ~D[2019-07-21], status: "Aberta"}
+    total_price    = enrollment_attrs.total_price
+    total_invoices = enrollment_attrs.total_invoices
+    due_date_day   = enrollment_attrs.due_date
 
-    # invoice = Ecto.Changeset.change(%Invoice{}, invoice_attrs)
+    price = total_price / total_invoices
 
-    invoices = [
-      Ecto.Changeset.change(%Invoice{}, invoice_1),
-      Ecto.Changeset.change(%Invoice{}, invoice_2)
-    ]
+    today = Timex.today
 
-    # invoice = Ecto.Changeset.change(%Invoice{}, invoice_attrs)
-    # Ecto.Changeset.put_assoc(changeset, :invoices, [invoice])
+    range_invoices =
+      cond do
+        due_date_day <= today.day -> 1..total_invoices
+        due_date_day > today.day -> 0..total_invoices-1
+      end
+
+    invoices =
+      range_invoices
+      |> Enum.reduce([], fn months, acc -> [
+        %{
+          status: "Aberta",
+          due_date: Timex.shift(today, months: months),
+          price: price
+        } | acc
+      ] end)
 
     Ecto.Changeset.put_assoc(changeset, :invoices, invoices)
 
-      #|> Invoices.create_invoice()
-    # Ecto.Changeset.cast_assoc(changeset, :invoices, required: true)
+    # invoice = Ecto.Changeset.change(%Invoice{}, invoice_attrs)
     # Ecto.Changeset.put_assoc(changeset, :invoices, [invoice])
   end
 end
