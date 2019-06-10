@@ -1,6 +1,7 @@
 #!/bin/bash
 
-mix deps.get
+#mix deps.get
+HEX_HTTP_CONCURRENCY=1 HEX_HTTP_TIMEOUT=120 mix deps.get
 mix local.rebar --force
 
 mix ecto.create
