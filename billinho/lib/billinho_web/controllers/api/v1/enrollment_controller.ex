@@ -19,8 +19,11 @@ defmodule BillinhoWeb.Api.V1.EnrollmentController do
   end
 
   def create(conn, %{"enrollment" => %{"student_id" => student_id, "institute_id" => institute_id} = enrollment_params}) do
-    student   = Students.get_student!(student_id)
-    institute = Institutes.get_institute!(institute_id)
+    student_task   = Task.async(fn -> Students.get_student!(student_id) end)
+    institute_task = Task.async(fn -> Institutes.get_institute!(institute_id) end)
+
+    student   = Task.await(student_task)
+    institute = Task.await(institute_task)
 
     with {:ok, %Enrollment{} = enrollment} <- Enrollments.create_enrollment(enrollment_params, student, institute) do
       conn
