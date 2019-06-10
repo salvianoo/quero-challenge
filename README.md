@@ -1,6 +1,6 @@
 # Billinho
 
-O projeto da API Billinho é uma aplição Phoenix que se conecta com um banco de dados Postgres.
+O projeto da API Billinho é uma aplicação Phoenix que se conecta a um banco de dados Postgres.
 
 Para rodar a aplicação basta executar o seguinte comando na raiz do projeto
 
