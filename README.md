@@ -26,7 +26,9 @@ $ make test
 
 Após rodar a aplicação, abra o Postman e importe o arquivo `Billinho.postman_collection.json`, localizado
 na raiz do projeto.
-Uma coleção chamada `Billinho`, com todos os endpoints, estará disponível para agilizar a interação com a API
+Uma coleção chamada `Billinho`, com todos os endpoints, estará disponível para agilizar a interação com a API.
+
+Importe diretamente pelo link abaixo:
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/91e2c0b91e81cdcdf574)
 
