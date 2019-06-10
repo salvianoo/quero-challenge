@@ -1,0 +1,557 @@
+{
+	"info": {
+		"_postman_id": "51fa2852-b0f5-4306-8931-8f5f0ee488ab",
+		"name": "Billinho",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Institutes",
+			"item": [
+				{
+					"name": "/v1/institutes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/v1/institutes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"v1",
+								"institutes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v1/institutes",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"institute\": {\n\t\t\"cnpj\": \"45695286000105\",\n\t\t\"name\": \"Universidade de Porto Real\",\n\t\t\"type\": \"Universidade\"\n\t}\n}"
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/v1/institutes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"v1",
+								"institutes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v1/institutes/1",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/v1/institutes/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"v1",
+								"institutes",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v1/institutes/1",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"institute\": {\n        \"name\": \"Universidade de Porto Real\",\n        \"type\": \"Universidade\"\n    }\n}"
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/v1/institutes/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"v1",
+								"institutes",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v1/institutes/1",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/v1/institutes/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"v1",
+								"institutes",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "c3f7fa27-5353-40aa-b658-4a0ed43a696b",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "5869d48d-a995-4414-ac8c-c20d6f14aca4",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Students",
+			"item": [
+				{
+					"name": "/v1/students",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/v1/students",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"v1",
+								"students"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v1/students",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"student\": {\n\t\t\"birth_date\": \"1988-03-11\",\n\t\t\"cpf\": \"32859656065\",\n\t\t\"gender\": \"M\",\n\t\t\"name\": \"John Wick\",\n\t\t\"payment_method\": \"Boleto\",\n\t\t\"telephone\": \"64999435794\"\n\t}\n}"
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/v1/students",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"v1",
+								"students"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v1/students/1",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/v1/students/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"v1",
+								"students",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v1/students/1",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"student\": {\n\t\t\"birth_date\": \"1988-03-11\",\n\t\t\"cpf\": \"32859656062\",\n\t\t\"gender\": \"M\",\n\t\t\"name\": \"John Wick\",\n\t\t\"payment_method\": \"Boleto\",\n\t\t\"telephone\": \"64999435794\"\n\t}\n}"
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/v1/students/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"v1",
+								"students",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v1/students/1",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/v1/students/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"v1",
+								"students",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ad125ddc-b9cb-4663-a5d4-f28c3071aa29",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "5c9e6ec2-073e-403f-8717-a9c22e1b5d7c",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Enrollments",
+			"item": [
+				{
+					"name": "/v1/enrollments",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/v1/enrollments",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"v1",
+								"enrollments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v1/enrollments",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"enrollment\": {\n        \"course_name\": \"Practical Object-Oriented Design Course\",\n        \"due_date\": 21,\n        \"total_invoices\": 5,\n        \"total_price\": 2000.0,\n        \"student_id\": 1,\n        \"institute_id\": 1\n    }\n}"
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/v1/enrollments",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"v1",
+								"enrollments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v1/enrollments/1",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/api/v1/enrollments/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"v1",
+								"enrollments",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v1/enrollments/1",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"enrollment\": {\n\t\t\"course_name\": \"Practical Object-Oriented Design Course\",\n\t\t\"due_date\": 21,\n\t\t\"total_invoices\": 5,\n\t\t\"total_price\": 2000.0,\n\t\t\"student_id\": 1,\n\t\t\"institute_id\": 1\n\t}\n}"
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/v1/enrollments/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"v1",
+								"enrollments",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v1/enrollments/1",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/v1/enrollments/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"v1",
+								"enrollments",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "9fd93bfc-ad4e-4cd1-bf33-9b564df2a137",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "236c5796-24e8-4231-884f-f48f37fe1211",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Invoices",
+			"item": [
+				{
+					"name": "/v1/invoices",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/v1/invoices",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"v1",
+								"invoices"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v1/invoices/1",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/v1/invoices/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"v1",
+								"invoices",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "c8181bb6-c525-46fc-b42f-a463497a9f4a",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "a8e289ca-c9c6-46fa-bffd-64f9476900be",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	]
+}
