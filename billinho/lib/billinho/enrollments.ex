@@ -10,7 +10,6 @@ defmodule Billinho.Enrollments do
   alias Billinho.Students.Student
   alias Billinho.Institutes.Institute
   alias Billinho.Invoices.Invoice
-  alias Billinho.Invoices
 
   use Timex
 
@@ -134,27 +133,24 @@ defmodule Billinho.Enrollments do
     Repo.preload(institute_or_institutes, :institute)
   end
 
-  defp build_invoices(changeset, enrollment_attrs) do
-    # d(%{total_price, total_invoices, due_date}) = enrollment_attrs
+  defp build_invoices(changeset, %{"total_price" => nil, "total_invoices" => nil}), do: changeset
+  # defp build_invoices(changeset, %{"total_price" => nil, "total_invoices" => _total_invoices}), do: changeset
+  # defp build_invoices(changeset, %{"total_price" => _total_price, "total_invoices" => nil}), do: changeset
 
-    total_price    = enrollment_attrs.total_price
-    total_invoices = enrollment_attrs.total_invoices
-    due_date_day   = enrollment_attrs.due_date
-
+  defp build_invoices(changeset, %{"total_price" => total_price, "total_invoices" => total_invoices, "due_date" => due_date}) do
     price = total_price / total_invoices
-
     today = Timex.today
 
     range_invoices =
       cond do
-        due_date_day <= today.day -> 1..total_invoices
-        due_date_day > today.day -> 0..total_invoices-1
+        due_date <= today.day -> 1..total_invoices
+        due_date > today.day -> 0..total_invoices-1
       end
 
     invoices =
       range_invoices
       |> Enum.reduce([], fn months, acc -> [
-        %{
+        %Invoice{
           status: "Aberta",
           due_date: Timex.shift(today, months: months),
           price: price
@@ -162,8 +158,5 @@ defmodule Billinho.Enrollments do
       ] end)
 
     Ecto.Changeset.put_assoc(changeset, :invoices, invoices)
-
-    # invoice = Ecto.Changeset.change(%Invoice{}, invoice_attrs)
-    # Ecto.Changeset.put_assoc(changeset, :invoices, [invoice])
   end
 end

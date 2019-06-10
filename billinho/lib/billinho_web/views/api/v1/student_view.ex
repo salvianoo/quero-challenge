@@ -11,12 +11,14 @@ defmodule BillinhoWeb.Api.V1.StudentView do
   end
 
   def render("student.json", %{student: student}) do
-    %{id: student.id,
+    %{
+      id: student.id,
       name: student.name,
       cpf: student.cpf,
       birth_date: student.birth_date,
       telephone: student.telephone,
       gender: student.gender,
-      payment_method: student.payment_method}
+      payment_method: student.payment_method
+    }
   end
 end

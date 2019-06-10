@@ -10,58 +10,33 @@
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
 
-# alias Billinho.Students.Student
-# alias Billinho.Institutes.Institute
-# alias Billinho.Enrollments.Enrollment
-# alias Billinho.Invoices.Invoice
-
 alias Billinho.Students
 alias Billinho.Institutes
-# alias Billinho.Enrollments
-# alias Billinho.Invoices
+alias Billinho.Enrollments
 
-# alias Billinho.Repo
+{:ok, student} =
+  %{
+    birth_date: ~D[1988-03-11],
+    cpf: "32859656065",
+    gender: "F",
+    name: "Sandi Metz",
+    payment_method: "Boleto",
+    telephone: 64999435794
+  }
+  |> Students.create_student()
+
+{:ok, institute} =
+  %{
+    name: "Universidade do Código Bonito",
+    cnpj: "81256959000194",
+    type: "Universidade"
+  }
+  |> Institutes.create_institute()
 
 %{
-  birth_date: ~D[1988-03-11],
-  cpf: "32859656065",
-  gender: "F",
-  name: "Marta Rocha Felipe",
-  payment_method: "Boleto",
-  telephone: 64999435794
+  "course_name" => "Practical Object-Oriented Design Course",
+  "due_date" => 21,
+  "total_invoices" => 4,
+  "total_price" => 1680.0
 }
-|>
-Students.create_student
-
-%{
-  name: "Universidade Federal de Uberlândia",
-  cnpj: "72.346.635/0001-56",
-  type: "Universidade"
-}
-|>
-Institutes.create_institute
-
-# student = %Student{
-#   birth_date: ~D[1988-03-11],
-#   cpf: "02741316171",
-#   gender: "M",
-#   name: "Salviano Ludgerio",
-#   payment_method: "Boleto",
-#   telephone: 64999435794
-# }
-# |>
-# Repo.insert!
-
-# institute = %Institute{
-#   name: "Universidade Federal de Uberlândia",
-#   cnpj: "72.346.635/0001-56",
-#   type: "Universidade"
-# }
-# |>
-# Repo.insert!
-
-#%Enrollment{}
-
-# Como criar uma matricula?
-# Find student by id
-# Find institute by id
+|> Enrollments.create_enrollment(student, institute)

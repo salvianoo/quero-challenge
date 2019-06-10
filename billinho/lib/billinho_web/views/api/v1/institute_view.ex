@@ -11,9 +11,11 @@ defmodule BillinhoWeb.Api.V1.InstituteView do
   end
 
   def render("institute.json", %{institute: institute}) do
-    %{id: institute.id,
+    %{
+      id: institute.id,
       name: institute.name,
       cnpj: institute.cnpj,
-      type: institute.type}
+      type: institute.type
+    }
   end
 end

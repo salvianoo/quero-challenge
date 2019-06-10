@@ -6,7 +6,7 @@ defmodule Billinho.Repo.Migrations.CreateInvoices do
       add :due_date, :date
       add :price, :float
       add :status, :string, default: "Aberta"
-      add :enrollment_id, references(:enrollments, on_delete: :nothing)
+      add :enrollment_id, references(:enrollments, on_delete: :delete_all)
 
       timestamps()
     end
