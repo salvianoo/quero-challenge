@@ -28,6 +28,8 @@ Após rodar a aplicação, abra o Postman e importe o arquivo `Billinho.postman_
 na raiz do projeto.
 Uma coleção chamada `Billinho`, com todos os endpoints, estará disponível para agilizar a interação com a API
 
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/91e2c0b91e81cdcdf574)
+
 ## Endpoints da API
 
 ```text
